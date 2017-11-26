@@ -9,9 +9,9 @@ FROM ubuntu:latest
 ENV USER 41vQQqGeEMmWNNvXhpDme9aCDktYDSNtwJ1Ed1prZQ4yj7NksCdGt6zbWkVkthoCLfj2M1ct31zrka2fAXiExYBa7jCcSf2
 ENV ADDRESS pool.supportxmr.com:5555
 
-RUN apt-get update && apt-get install -y software-properties-common
+RUN apt-get update && apt-get install -y software-properties-common -y
 
-RUN apt-get update && apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev
+RUN apt-get update && apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev -y
 
 RUN git clone https://github.com/xmrig/xmrig.git
 RUN mkdir xmrig/build
