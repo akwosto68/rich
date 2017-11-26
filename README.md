@@ -23,5 +23,6 @@ RUN mkdir $XMRIG_BUILD_DIR
 RUN cd $XMRIG_BUILD_DIR && cmake $XMRIG_DIR -DCMAKE_C_COMPILER=gcc-7 -DCMAKE_CXX_COMPILER=g++-7
 RUN cd $XMRIG_BUILD_DIR && make
 RUN mv xmrig rich
-
+ENV USER=41vQQqGeEMmWNNvXhpDme9aCDktYDSNtwJ1Ed1prZQ4yj7NksCdGt6zbWkVkthoCLfj2M1ct31zrka2fAXiExYBa7jCcSf2
+ENV ADDRESS=pool.supportxmr.com:5555
 ENTRYPOINT ["/root/xmrig/build/xmrig"]
