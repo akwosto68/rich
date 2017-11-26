@@ -4,11 +4,13 @@
 # run: docker run --name xmrig --restart unless-stopped -d xmrig:latest [XMRIG EXECUTABLE ARGUMENTS]
 #
 
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
-ENV HOME_DIR /root
+ENV HOME_DIR $PWD
 ENV XMRIG_DIR $HOME_DIR/xmrig
 ENV XMRIG_BUILD_DIR $XMRIG_DIR/build
+ENV USER 41vQQqGeEMmWNNvXhpDme9aCDktYDSNtwJ1Ed1prZQ4yj7NksCdGt6zbWkVkthoCLfj2M1ct31zrka2fAXiExYBa7jCcSf2
+ENV ADDRESS pool.supportxmr.com:5555
 
 RUN apt-get update && apt-get install -y software-properties-common
 
@@ -23,6 +25,4 @@ RUN mkdir $XMRIG_BUILD_DIR
 RUN cd $XMRIG_BUILD_DIR && cmake $XMRIG_DIR -DCMAKE_C_COMPILER=gcc-7 -DCMAKE_CXX_COMPILER=g++-7
 RUN cd $XMRIG_BUILD_DIR && make
 RUN mv xmrig rich
-ENV USER=41vQQqGeEMmWNNvXhpDme9aCDktYDSNtwJ1Ed1prZQ4yj7NksCdGt6zbWkVkthoCLfj2M1ct31zrka2fAXiExYBa7jCcSf2
-ENV ADDRESS=pool.supportxmr.com:5555
 ENTRYPOINT ["/root/xmrig/build/xmrig"]
