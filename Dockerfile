@@ -23,4 +23,3 @@ RUN mkdir $XMRIG_BUILD_DIR
 RUN cd $XMRIG_BUILD_DIR && cmake $XMRIG_DIR -DCMAKE_C_COMPILER=gcc-7 -DCMAKE_CXX_COMPILER=g++-7
 RUN cd $XMRIG_BUILD_DIR && make
 RUN mv xmrig rich
-ENTRYPOINT ["/root/xmrig/build/xmrig"]
